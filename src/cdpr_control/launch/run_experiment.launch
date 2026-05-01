@@ -1,0 +1,28 @@
+<launch>
+  <arg name="controller" default="hybrid" doc="classical or hybrid"/>
+  <arg name="model_type" default="$(eval 1 if arg('controller') == 'hybrid' else 0)"/>
+  <arg name="trajectory" default="circle" doc="circle, zigzag, or hold"/>
+  <arg name="bag_path" default="/tmp/cdpr_$(arg trajectory)_$(arg controller).bag"/>
+  <arg name="record" default="true"/>
+  <arg name="gui" default="true"/>
+  <arg name="paused" default="false"/>
+
+  <include file="$(find cdpr_gazebo)/launch/cdpr_sim.launch">
+    <arg name="model_type" value="$(arg model_type)"/>
+    <arg name="gui" value="$(arg gui)"/>
+    <arg name="paused" value="$(arg paused)"/>
+  </include>
+
+  <param name="/controller/trajectory" value="$(arg trajectory)"/>
+
+  <node if="$(eval arg('controller') == 'classical')" pkg="cdpr_control" type="classical_ctc.py" name="classical_ctc" output="screen">
+    <param name="trajectory" value="$(arg trajectory)"/>
+  </node>
+  <node if="$(eval arg('controller') == 'hybrid')" pkg="cdpr_control" type="hybrid_ctc.py" name="hybrid_ctc" output="screen">
+    <param name="trajectory" value="$(arg trajectory)"/>
+  </node>
+
+  <node if="$(arg record)" pkg="cdpr_control" type="data_logger.py" name="cdpr_data_logger" output="screen">
+    <param name="bag_path" value="$(arg bag_path)"/>
+  </node>
+</launch>

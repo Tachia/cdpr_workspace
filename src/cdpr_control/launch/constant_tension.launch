@@ -1,0 +1,23 @@
+<launch>
+  <arg name="model_type" default="1"/>
+  <arg name="cable_index" default="0"/>
+  <arg name="tension" default="40.0"/>
+  <arg name="duration" default="10.0"/>
+  <arg name="bag_path" default="/tmp/cdpr_constant_tension.bag"/>
+  <arg name="gui" default="true"/>
+
+  <include file="$(find cdpr_gazebo)/launch/cdpr_sim.launch">
+    <arg name="model_type" value="$(arg model_type)"/>
+    <arg name="gui" value="$(arg gui)"/>
+  </include>
+
+  <node pkg="cdpr_control" type="constant_tension_experiment.py" name="constant_tension_experiment" output="screen">
+    <param name="cable_index" value="$(arg cable_index)"/>
+    <param name="tension" value="$(arg tension)"/>
+    <param name="duration" value="$(arg duration)"/>
+  </node>
+
+  <node pkg="cdpr_control" type="data_logger.py" name="cdpr_data_logger" output="screen">
+    <param name="bag_path" value="$(arg bag_path)"/>
+  </node>
+</launch>

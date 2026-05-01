@@ -1,0 +1,12 @@
+<launch>
+  <arg name="bag" default=""/>
+  <arg name="figures" default="$(env HOME)/cdpr_figures"/>
+  <arg name="platform_name" default="cdpr_platform"/>
+
+  <node if="$(eval arg('bag') == '')" pkg="cdpr_postprocess" type="make_additional_figures.py"
+        name="make_cdpr_additional_figures" output="screen"
+        args="--figures $(arg figures) --platform-name $(arg platform_name)"/>
+  <node unless="$(eval arg('bag') == '')" pkg="cdpr_postprocess" type="make_additional_figures.py"
+        name="make_cdpr_additional_figures" output="screen"
+        args="--bag $(arg bag) --figures $(arg figures) --platform-name $(arg platform_name)"/>
+</launch>

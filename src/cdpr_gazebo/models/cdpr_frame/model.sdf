@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <model name="cdpr_frame">
+    <static>true</static>
+    <link name="frame">
+      <!-- Bottom square -->
+      <visual name="beam_bottom_x_neg"><pose>0 -6 0.05 0 0 0</pose><geometry><box><size>12.0 0.10 0.10</size></box></geometry><material><ambient>0.18 0.20 0.22 1</ambient><diffuse>0.18 0.20 0.22 1</diffuse></material></visual>
+      <visual name="beam_bottom_x_pos"><pose>0  6 0.05 0 0 0</pose><geometry><box><size>12.0 0.10 0.10</size></box></geometry><material><ambient>0.18 0.20 0.22 1</ambient><diffuse>0.18 0.20 0.22 1</diffuse></material></visual>
+      <visual name="beam_bottom_y_neg"><pose>-6 0 0.05 0 0 0</pose><geometry><box><size>0.10 12.0 0.10</size></box></geometry><material><ambient>0.18 0.20 0.22 1</ambient><diffuse>0.18 0.20 0.22 1</diffuse></material></visual>
+      <visual name="beam_bottom_y_pos"><pose> 6 0 0.05 0 0 0</pose><geometry><box><size>0.10 12.0 0.10</size></box></geometry><material><ambient>0.18 0.20 0.22 1</ambient><diffuse>0.18 0.20 0.22 1</diffuse></material></visual>
+
+      <!-- Top square -->
+      <visual name="beam_top_x_neg"><pose>0 -6 6.0 0 0 0</pose><geometry><box><size>12.0 0.10 0.10</size></box></geometry><material><ambient>0.18 0.20 0.22 1</ambient><diffuse>0.18 0.20 0.22 1</diffuse></material></visual>
+      <visual name="beam_top_x_pos"><pose>0  6 6.0 0 0 0</pose><geometry><box><size>12.0 0.10 0.10</size></box></geometry><material><ambient>0.18 0.20 0.22 1</ambient><diffuse>0.18 0.20 0.22 1</diffuse></material></visual>
+      <visual name="beam_top_y_neg"><pose>-6 0 6.0 0 0 0</pose><geometry><box><size>0.10 12.0 0.10</size></box></geometry><material><ambient>0.18 0.20 0.22 1</ambient><diffuse>0.18 0.20 0.22 1</diffuse></material></visual>
+      <visual name="beam_top_y_pos"><pose> 6 0 6.0 0 0 0</pose><geometry><box><size>0.10 12.0 0.10</size></box></geometry><material><ambient>0.18 0.20 0.22 1</ambient><diffuse>0.18 0.20 0.22 1</diffuse></material></visual>
+
+      <!-- Columns -->
+      <visual name="column_0"><pose>-6 -6 3 0 0 0</pose><geometry><box><size>0.12 0.12 6.0</size></box></geometry><material><ambient>0.18 0.20 0.22 1</ambient><diffuse>0.18 0.20 0.22 1</diffuse></material></visual>
+      <visual name="column_1"><pose> 6 -6 3 0 0 0</pose><geometry><box><size>0.12 0.12 6.0</size></box></geometry><material><ambient>0.18 0.20 0.22 1</ambient><diffuse>0.18 0.20 0.22 1</diffuse></material></visual>
+      <visual name="column_2"><pose> 6  6 3 0 0 0</pose><geometry><box><size>0.12 0.12 6.0</size></box></geometry><material><ambient>0.18 0.20 0.22 1</ambient><diffuse>0.18 0.20 0.22 1</diffuse></material></visual>
+      <visual name="column_3"><pose>-6  6 3 0 0 0</pose><geometry><box><size>0.12 0.12 6.0</size></box></geometry><material><ambient>0.18 0.20 0.22 1</ambient><diffuse>0.18 0.20 0.22 1</diffuse></material></visual>
+
+      <!-- Anchor markers -->
+      <visual name="anchor_0"><pose>-6 -6 6 0 0 0</pose><geometry><sphere><radius>0.16</radius></sphere></geometry><material><ambient>0.86 0.16 0.12 1</ambient><diffuse>0.86 0.16 0.12 1</diffuse></material></visual>
+      <visual name="anchor_1"><pose> 6 -6 6 0 0 0</pose><geometry><sphere><radius>0.16</radius></sphere></geometry><material><ambient>0.86 0.16 0.12 1</ambient><diffuse>0.86 0.16 0.12 1</diffuse></material></visual>
+      <visual name="anchor_2"><pose> 6  6 6 0 0 0</pose><geometry><sphere><radius>0.16</radius></sphere></geometry><material><ambient>0.86 0.16 0.12 1</ambient><diffuse>0.86 0.16 0.12 1</diffuse></material></visual>
+      <visual name="anchor_3"><pose>-6  6 6 0 0 0</pose><geometry><sphere><radius>0.16</radius></sphere></geometry><material><ambient>0.86 0.16 0.12 1</ambient><diffuse>0.86 0.16 0.12 1</diffuse></material></visual>
+      <visual name="anchor_4"><pose>-6 -6 0 0 0 0</pose><geometry><sphere><radius>0.16</radius></sphere></geometry><material><ambient>0.86 0.16 0.12 1</ambient><diffuse>0.86 0.16 0.12 1</diffuse></material></visual>
+      <visual name="anchor_5"><pose> 6 -6 0 0 0 0</pose><geometry><sphere><radius>0.16</radius></sphere></geometry><material><ambient>0.86 0.16 0.12 1</ambient><diffuse>0.86 0.16 0.12 1</diffuse></material></visual>
+      <visual name="anchor_6"><pose> 6  6 0 0 0 0</pose><geometry><sphere><radius>0.16</radius></sphere></geometry><material><ambient>0.86 0.16 0.12 1</ambient><diffuse>0.86 0.16 0.12 1</diffuse></material></visual>
+      <visual name="anchor_7"><pose>-6  6 0 0 0 0</pose><geometry><sphere><radius>0.16</radius></sphere></geometry><material><ambient>0.86 0.16 0.12 1</ambient><diffuse>0.86 0.16 0.12 1</diffuse></material></visual>
+    </link>
+  </model>
+</sdf>

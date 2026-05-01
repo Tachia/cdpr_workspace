@@ -1,0 +1,62 @@
+cdpr:
+  # model_type: 0 = classical straight/massless cables, 1 = hybrid catenary-elastic cables.
+  model_type: 1
+  rate_hz: 200.0
+
+  frame:
+    dimensions: [12.0, 12.0, 6.0]
+
+  platform:
+    name: cdpr_platform
+    link_name: platform_link
+    mass: 50.0
+    size: [1.0, 1.0, 1.0]
+    initial_pose: [0.0, 0.0, 3.0, 0.0, 0.0, 0.0]
+
+  cable:
+    count: 8
+    min_tension: 10.0
+    max_tension: 500.0
+    nominal_tension: 80.0
+    # Chosen so a 40 N, 8 m horizontal span gives about 14.5 mm midspan sag.
+    linear_density: 0.00739      # kg/m
+    diameter: 0.0030            # m
+    young_modulus: 1.0e10       # Pa
+    area: 7.06858347e-6         # m^2
+    axial_stiffness: 7.06858347e4 # N
+    gravity: 9.80665
+    catenary_iterations: 4
+
+  # Fixed pulley/anchor coordinates in world frame, meters.
+  anchors:
+    - [-6.0, -6.0, 6.0]
+    - [ 6.0, -6.0, 6.0]
+    - [ 6.0,  6.0, 6.0]
+    - [-6.0,  6.0, 6.0]
+    - [-6.0, -6.0, 0.0]
+    - [ 6.0, -6.0, 0.0]
+    - [ 6.0,  6.0, 0.0]
+    - [-6.0,  6.0, 0.0]
+
+  # Attachment coordinates in platform frame, meters.
+  platform_attachments:
+    - [-0.5, -0.5,  0.5]
+    - [ 0.5, -0.5,  0.5]
+    - [ 0.5,  0.5,  0.5]
+    - [-0.5,  0.5,  0.5]
+    - [-0.5, -0.5, -0.5]
+    - [ 0.5, -0.5, -0.5]
+    - [ 0.5,  0.5, -0.5]
+    - [-0.5,  0.5, -0.5]
+
+controller:
+  frequency: 200.0
+  kp: 800.0
+  kd: 40.0
+  kp_rot: 80.0
+  kd_rot: 8.0
+  trajectory: circle
+  circle_radius: 2.0
+  circle_speed: 0.3
+  zigzag_period: 5.0
+  zigzag_amplitude: 2.0

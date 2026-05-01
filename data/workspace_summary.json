@@ -1,0 +1,12 @@
+{
+  "spacing": 0.5,
+  "z": 2.5,
+  "samples": 5,
+  "v_max": 0.5,
+  "a_max": 1.0,
+  "model": 1,
+  "residual_tol": 2.5,
+  "static_area_m2": 17.25,
+  "dynamic_area_m2": 2.25,
+  "grid_cells": 529
+}

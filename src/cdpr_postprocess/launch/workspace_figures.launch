@@ -1,0 +1,7 @@
+<launch>
+  <arg name="workspace_samples" default="200"/>
+  <arg name="figures" default="$(env HOME)/cdpr_figures"/>
+  <!-- make_figures.py computes the analytical workspace first if the CSV is absent. -->
+  <node pkg="cdpr_postprocess" type="make_figures.py" name="make_cdpr_figures" output="screen"
+        args="--workspace-samples $(arg workspace_samples) --figures $(arg figures)"/>
+</launch>
